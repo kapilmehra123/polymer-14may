@@ -1,0 +1,29 @@
+{
+  "name": "polymer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --no-timeouts 'main/index.js' --reporter mochawesome-screenshots"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1591.0",
+    "chromedriver": "^120.0.1",
+    "jsdom": "^24.0.0",
+    "mocha": "^10.2.0",
+    "nodemailer": "^6.9.13",
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.16.0",
+    "uuid": "^9.0.1",
+    "webdriver": "^8.27.0",
+    "yargs-parser": "^21.1.1"
+  },
+  "devDependencies": {
+    "marge": "^1.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-screenshots": "^1.7.3"
+  }
+}

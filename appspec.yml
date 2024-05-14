@@ -1,0 +1,27 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/newcode     ## newcode is github repo name 
+hooks:
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+    - location: scripts/start_server.sh
+      timeout: 900
+      runas: ubuntu
+    - location: scripts/html_report.sh
+      timeout: 300
+      runas: ubuntu
+    - location: scripts/s3_server.sh
+      timeout: 300
+      runas: ubuntu
+    - location: scripts/recorded_video.sh
+      timeout: 300
+      runas: root
+  # ApplicationStop:
+  #   - location: scripts/stop_server
+  #     timeout: 300
+  #     runas: root
+  # #must change filepath in crediantial.json 
