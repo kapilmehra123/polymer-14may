@@ -2,77 +2,8 @@
   "cases": [
     {
       "paidtype": "nonpaidfunnel",
-      "signupMethod": "email",
+      "signupMethod": "google",
       "source": "csvupload"
-    },
-       {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "facebook",
-      "source": "csvupload"
-    },
-    {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "email",
-      "source": "xlsupload"
-    },
-     {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "facebook",
-      "source": "xlsupload"
-    },
-     {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "email",
-      "source": "facebookads"
-    },
-      {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "facebook",
-      "source": "facebookads"
-    },
-   
-    {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "email",
-      "source": "jira"
-    },
-       {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "facebook",
-      "source": "jira"
-    },
-    {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "email",
-      "source": "zendesk"
-    },
-   
-    {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "facebook",
-      "source": "zendesk"
-    },
-    {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "email",
-      "source": "facebookadstemplate"
-    },
-      {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "facebook",
-      "source": "facebookadstemplate"
-    },
- 
-
-    {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "email",
-      "source": "shopify"
-    },
-    {
-      "paidtype": "nonpaidfunnel",
-      "signupMethod": "facebook",
-      "source": "shopify"
     }
   ]
 }
