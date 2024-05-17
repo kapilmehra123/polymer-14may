@@ -24,6 +24,57 @@ const {
 } = require("../main/index")
 //verify the google sign up
 describe("Verify the google sign up", async function () {
+    //enable the 2fa
+    it("enable the 2fa", async function () {
+        await driver.sleep(longSleepDuration);
+        //go to the google account
+        await driver.get("https://accounts.google.com/signin")
+        await driver.sleep(longSleepDuration);
+        const googleemailElementLocator = By.xpath("//input[@type='email']");
+        const emailInputElement = await driver.findElements(googleemailElementLocator);
+        if (emailInputElement.length > 0) {
+            // Email input element found, proceed with the actions
+            await actionWithRetry(driver, async function (element) {
+                await element.sendKeys(googlemail, Key.RETURN);
+            }, googleemailElementLocator, 4, 1000);
+            await driver.sleep(longSleepDuration)
+            await driver.sleep(longSleepDuration)
+            const waitgooglepassElementLocator = By.xpath("//input[@type='password']");
+            await actionWithRetry(driver, async function (element) {}, waitgooglepassElementLocator, 4, 10000);
+            // Send the google password
+            const googlepassElementLocator = By.xpath("//input[@type='password']");
+            await actionWithRetry(driver, async function (element) {
+                await element.sendKeys(googlepass, Key.RETURN);
+            }, googlepassElementLocator, 4, 1000);
+        } else {
+            //click on google account
+            const clickOnGoogleAccount = By.xpath("(//div[@class='VV3oRb YZVTmd SmR8'])[1]");
+            await actionWithRetry(driver, async function (element) {
+                await element.click();
+            }, clickOnGoogleAccount, 4, 10000);
+        }
+        await driver.sleep(longSleepDuration)
+        //click on security
+        const clickOnSecurity = By.xpath("(//div[text()='Security'])[2]");
+        await actionWithRetry(driver, async function (element) {
+            await element.click();
+        }, clickOnSecurity, 4, 1000);
+        //click on 2 step verification
+        const clickOn2step = By.xpath("//div[text()='2-Step Verification']");
+        await actionWithRetry(driver, async function (element) {
+            await element.click();
+        }, clickOn2step, 4, 1000);
+        //enable the 2 step verification
+        const clickOnEnable = By.xpath("//span[text()='Turn on 2-Step Verification']");
+        await actionWithRetry(driver, async function (element) {
+            await element.click();
+        }, clickOnEnable, 4, 1000);
+        //click on done
+        const clickOnDone = By.xpath("//span[text()='Done']");
+        await actionWithRetry(driver, async function (element) {
+            await element.click();
+        }, clickOnDone, 4, 1000);
+    })
     //click on sign in with google 
     it("click on sign up with google", async function () {
         await driver.get(baseUrl)
@@ -130,5 +181,31 @@ describe("Verify the google sign up", async function () {
         await actionWithRetry(driver, async function (element) {
             await element.click();
         }, continueButtonElementLocator, 4, 10000);
+    })
+    //disable 2fa
+    it("disable 2fa", async function () {
+        await driver.sleep(longSleepDuration)
+        await driver.get("https://accounts.google.com/signin")
+        await driver.sleep(longSleepDuration)
+        //click on security
+        const clickOnSecurity = By.xpath("(//div[text()='Security'])[2]");
+        await actionWithRetry(driver, async function (element) {
+            await element.click();
+        }, clickOnSecurity, 4, 1000);
+        //click on 2 step verification
+        const clickOn2step = By.xpath("//div[text()='2-Step Verification']");
+        await actionWithRetry(driver, async function (element) {
+            await element.click();
+        }, clickOn2step, 4, 1000);
+        const clickOnDisable = By.xpath("//span[text()='Turn off 2-Step Verification']");
+        await actionWithRetry(driver, async function (element) {
+            await element.click();
+        }, clickOnDisable, 4, 1000);
+        const clickOnOff = By.xpath("//span[text()='Turn off']");
+        await actionWithRetry(driver, async function (element) {
+            await element.click();
+        }, clickOnOff, 4, 1000);
+        await driver.sleep(longSleepDuration)
+        await driver.get(baseUrl)
     })
 })

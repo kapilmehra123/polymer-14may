@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.1591.0",
-    "chromedriver": "^124.0.3",
+    "chromedriver": "^125.0.0",
     "jsdom": "^24.0.0",
     "mocha": "^10.2.0",
     "nodemailer": "^6.9.13",
